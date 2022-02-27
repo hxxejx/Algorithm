@@ -38,9 +38,11 @@ public class D3_2001_파리퇴치 {
 			
 			int max = Integer.MIN_VALUE;
 			
+			//파리가 있는 영역
 			for(int i = 0; i<=N-M; i++) {
 				for(int j = 0; j<=N-M; j++) {
 					int sum = 0;
+					//파리채
 					for(int k = 0; k<M; k++) {
 						for(int l = 0; l<M; l++) {
 							sum += arr[i+k][j+l];

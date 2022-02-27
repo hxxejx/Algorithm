@@ -3,6 +3,16 @@ package com.ssafy.im;
 import java.io.*;
 import java.util.*;
 
+/*
+ * 입력
+ * 1. 테스트 케이스 T
+ * 2. 농장의 크기 N
+ * 3. 농장 내 농작물의 가치
+ * 출력
+ * 1. 얻을 수 있는 수익
+ * 조건
+ * 1. 다이아몬드 모양으로 얻을 수 있음
+ */
 public class D3_2805_농작물수확하기 {
 
 	public static void main(String[] args) throws Exception {
@@ -25,12 +35,14 @@ public class D3_2805_농작물수확하기 {
 			
 			int sum = 0;
 			
+			//윗부분
 			for(int i = N/2; i>=0; i--) {
 				for(int j = N/2-i; j<=N/2+i; j++) {
 					sum += farm[i][j];
 				}
 			}
 			
+			//아랫부분
 			for(int i = N/2-1; i>=0; i--) {
 				for(int j = N/2-i; j<=N/2+i; j++) {
 					sum += farm[N-i-1][j];

@@ -45,6 +45,7 @@ public class D3_1873_상호의배틀필드 {
 				String str = br.readLine();
 				for(int j = 0; j<W; j++) {
 					arr[i][j] = str.charAt(j);
+					//초기 전차 위치
 					if(arr[i][j]=='<' || arr[i][j]=='>' || arr[i][j]=='^' || arr[i][j]=='v') {
 						x = i;
 						y = j;
@@ -58,6 +59,7 @@ public class D3_1873_상호의배틀필드 {
 				char cmd = str.charAt(i);
 				switch(cmd) {
 				case 'S':
+					//전차가 바라보는 방향에 따라 바뀜
 					switch(arr[x][y]) {
 					case '^':
 						shoot(0);
@@ -107,13 +109,17 @@ public class D3_1873_상호의배틀필드 {
 		int r = x;
 		int c = y;
 		
+		//배열을 벗어나거나, 벽을 만나기 전까지 반복
 		while(true) {
 			r += dx[i];
 			c += dy[i];
+			//배열을 벗어나면 break
 			if(r<0 || r>=H || c<0 || c>=W) break;
+			//벽돌로 만든 벽이 나오면 평지로 바꾼다
 			if(arr[r][c]=='*') {
 				arr[r][c] = '.';
 				break;
+			//강철로 만들어진 벽이 나오면 부수지 못하고 break
 			} else if(arr[r][c]=='#') break;
 		}
 		
@@ -124,12 +130,16 @@ public class D3_1873_상호의배틀필드 {
 
 		int r = x + dx[i];
 		int c = y + dy[i];
+		//배열을 벗어나지 않고, 평지라면 이동
 		if(r>=0 && r<H && c>=0 && c<W && arr[r][c]=='.') {
+			//원래 있던 곳은 평지로 바꿈
 			arr[x][y] = '.';
+			//평지로 전차 이동시켜 줌
 			arr[r][c] = tank[i];
 			x = r;
 			y = c;
 		} else {
+			//아니라면 전차 제자리
 			arr[x][y] = tank[i];
 		}
 		
