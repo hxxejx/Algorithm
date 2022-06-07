@@ -1,6 +1,3 @@
-package 구현;
-
-
 public class BJ_25083_새싹 {
 
 	public static void main(String[] args) {
